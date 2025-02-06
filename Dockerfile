@@ -1,14 +1,13 @@
-FROM node:20.17.0 AS build
-WORKDIR /app
-COPY tsconfig.json package*.json ./
-RUN npm install --force
+FROM node:18.18.2
 
-# Stage 2: Final
-FROM node:20.17.0-alpine
 WORKDIR /app
-COPY --from=build /app/node_modules /app/node_modules
+
+COPY package*.json ./
+
+RUN npm install
+
 COPY . .
 
-# Expose the port and set the command
 EXPOSE 3000
-CMD ["npm", "run", "start"]
+
+CMD ["npm", "start"]
