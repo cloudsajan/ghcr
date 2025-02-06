@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>DBTEZ</h1>
+      <h1>DBTEZ Technologies</h1>
     </div>
   );
 }
